@@ -1,5 +1,5 @@
 # Use the latest version of the Amazon Linux base image
-FROM amazonlinux:latest
+FROM amazonlinux:2
 
 # Update all installed packages to thier latest versions
 RUN yum update -y 
@@ -63,16 +63,16 @@ ARG RDS_MASTER_USERNAME
 ARG RDS_DB_PASSWORD
 
 # Use the build argument to set environment variables 
-ENV PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN
-ENV GITHUB_USERNAME=$GITHUB_USERNAME
-ENV REPOSITORY_NAME=$REPOSITORY_NAME
-ENV WEB_FILE_ZIP=$WEB_FILE_ZIP
-ENV WEB_FILE_UNZIP=$WEB_FILE_UNZIP
-ENV DOMAIN_NAME=$DOMAIN_NAME
-ENV RDS_ENDPOINT=$RDS_ENDPOINT
-ENV RDS_DB_NAME=$RDS_DB_NAME
-ENV RDS_MASTER_USERNAME=$RDS_MASTER_USERNAME
-ENV RDS_DB_PASSWORD=$RDS_DB_PASSWORD
+ENV PERSONAL_ACCESS_TOKEN=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
+ENV GITHUB_USERNAME=tobiakinlade
+ENV REPOSITORY_NAME=host-a-dynamic-web-app-on-aws
+ENV WEB_FILE_ZIP=rentzone.zip
+ENV WEB_FILE_UNZIP=rentzone
+ENV DOMAIN_NAME=www.tobiakinlade.com
+ENV RDS_ENDPOINT=database-1.cfqakc448l1x.eu-west-2.rds.amazonaws.com
+ENV RDS_DB_NAME=applicationdb
+ENV RDS_MASTER_USERNAME=admin
+ENV RDS_DB_PASSWORD=Oluwatobi16
 
 # Clone the GitHub repository
 RUN git clone https://$PERSONAL_ACCESS_TOKEN@github.com/$GITHUB_USERNAME/$REPOSITORY_NAME.git
